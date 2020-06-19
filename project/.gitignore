@@ -31,6 +31,7 @@ build/
 .vscode/
 
 
+
 # Created by https://www.toptal.com/developers/gitignore/api/windows,java,macos,eclipse,maven
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,java,macos,eclipse,maven
 
@@ -125,6 +126,7 @@ local.properties
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+
 ### macOS ###
 # General
 .DS_Store
@@ -152,6 +154,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
 
 ### Maven ###
 target/
@@ -193,3 +196,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,java,macos,eclipse,maven
+
