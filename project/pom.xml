@@ -64,6 +64,24 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>osdt_core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>oraclepki</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
