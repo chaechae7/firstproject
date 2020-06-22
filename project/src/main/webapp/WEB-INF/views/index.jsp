@@ -8,7 +8,7 @@
 	<jsp:param value="" name="pageTitle"/>
 </jsp:include>
 
-<h2>인덱스</h2>
+<h2>국내선수</h2>
   <!-- Page Content -->
   <div class="container">
 
