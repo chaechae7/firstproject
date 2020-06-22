@@ -20,6 +20,10 @@
 		.modal-backdrop{
 			z-index: 1;
 		}
+		
+		.sign{
+			margin-left: 10px;
+		}
 	</style>
  
 </head>
@@ -80,7 +84,7 @@
 
 	<li>
 		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+		<button type="button" class="sign btn btn-primary" data-toggle="modal" data-target="#exampleModal">
 		  Sign in
 		</button>
 		<!-- Modal -->
@@ -88,17 +92,40 @@
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+		        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
 		      </div>
 		      <div class="modal-body">
-						        
+		      
+				<label for="id">ID</label>
+				<div>
+					<input type="text" id="user_id" class="form-control" name="user_id" required="required" />
+				</div>
+				
+				<label for="id">PASSWORD</label>
+				<div>
+					<input type="password" id="user_pwd" class="form-control" name="user_pwd" required="required" />
+				</div>			        
 		        
+		        <div class="form-group row">
+                                <div class="col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="remember"> Remember Me
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-md-6 offset-md-3">
+                                <a href="#" class="btn btn-link">
+                                    Forgot Your Password?
+                                </a>
+                            </div>	        
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-primary">Save changes</button>
+		        <button type="button" class="btn btn-primary">Login</button>
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 		      </div>
 		    </div>
@@ -107,7 +134,7 @@
 	</li>
 	<li>
 		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+		<button type="button" class="sign btn btn-primary" data-toggle="modal" data-target="#exampleModal">
 		  Sign Up
 		</button>
 		<!-- Modal -->
@@ -121,8 +148,7 @@
 		        </button>
 		      </div>
 		      <div class="modal-body">
-						        
-		        
+
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-primary">Save changes</button>
