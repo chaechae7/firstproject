@@ -38,7 +38,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="${pageContext.request.contextPath}/nationalBoard.do">국내선수</a>
+            <a class="nav-link" href="${pageContext.request.contextPath}/board/nationalBoard.do">국내선수</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="services.html">해외선수</a>

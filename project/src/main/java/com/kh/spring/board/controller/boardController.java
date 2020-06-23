@@ -12,6 +12,12 @@ import com.kh.spring.board.model.vo.Board;
 @RequestMapping("/board")
 public class boardController {
 	
+	//국내선수 게시판으로 이동
+	@RequestMapping("/nationalBoard.do")
+	public String nationalBoard() {
+		return "nationalBoard";
+	}
+	
 	//게시글 등록 페이지로 이동
 	@RequestMapping(value="/write", method=RequestMethod.GET)
 	

@@ -11,10 +11,10 @@ public class ProjectController {
 		return "index";
 	}
 	
-	@RequestMapping("/nationalBoard.do")
-	public String nationalBoard() {
-		return "nationalBoard";
-	}
+//	@RequestMapping("/nationalBoard.do")
+//	public String nationalBoard() {
+//		return "nationalBoard";
+//	}
 	
 	
 	
