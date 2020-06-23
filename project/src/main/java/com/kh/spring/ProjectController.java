@@ -9,6 +9,6 @@ public class ProjectController {
 	@RequestMapping("/")
 	public String home() {
 		return "index";
-	}	
+  }
 	
 }

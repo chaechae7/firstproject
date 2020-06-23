@@ -74,7 +74,11 @@
         </form>
     </div>
 
+
     <button type="button" class="btn btn-outline-secondary float-right">글쓰기</button>
+
+    <input type="button" class="btn btn-outline-secondary float-right" onclick="location.href='${pageContext.request.contextPath}/board/boardWrite.do'" value="글쓰기"/>
+
 
     <div class="text-center">
         <ul class="pagination justify-content-center">
