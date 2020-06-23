@@ -9,13 +9,6 @@ public class ProjectController {
 	@RequestMapping("/")
 	public String home() {
 		return "index";
-	}
-	
-//	@RequestMapping("/nationalBoard.do")
-//	public String nationalBoard() {
-//		return "nationalBoard";
-//	}
-	
-	
+	}	
 	
 }

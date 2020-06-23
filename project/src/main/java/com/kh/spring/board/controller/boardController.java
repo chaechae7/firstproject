@@ -11,32 +11,33 @@ import com.kh.spring.board.model.vo.Board;
 @Controller
 @RequestMapping("/board")
 public class boardController {
-	
-	//국내선수 게시판으로 이동
+
+	// 국내선수 게시판으로 이동
 	@RequestMapping("/nationalBoard.do")
-	public String nationalBoard() {
-		return "nationalBoard";
+	public String nationalboardGET() {
+
+		return "/board/nationalBoard";
+
 	}
-	
-	//게시글 등록 페이지로 이동
-	@RequestMapping(value="/write", method=RequestMethod.GET)
-	
-	public String writeGET() {
-		
-		return "/board/write";
-		
+
+	// 게시글 등록 페이지로 이동
+	@RequestMapping("/boardWrite.do")
+		public String nationalBoardWrite() {
+			
+			return "/board/boardWrite";
 	}
+			
 	
-	//게시글 등록 처리
-	@RequestMapping(value = "/write", method=RequestMethod.POST)
-	
-	public String writePOST(Board board, RedirectAttributes redirectAttributes) {
-		
-		
-		redirectAttributes.addFlashAttribute("msg", "게시글 등록 성공!");
-		
-		return "redirect:/board/list";
-	}
-	
+//	//게시글 등록 처리
+//	@RequestMapping(value = "/write", method=RequestMethod.POST)
+//	
+//	public String writePOST(Board board, RedirectAttributes redirectAttributes) {
+//		
+//		
+//		redirectAttributes.addFlashAttribute("msg", "게시글 등록 성공!");
+//		
+//		return "redirect:/board/list";
+//	}
 	
 }
+
