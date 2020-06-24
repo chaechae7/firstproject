@@ -33,21 +33,22 @@ import com.kh.spring.common.util.*;
 @RequestMapping("/board")
 
 public class boardController {
-	
-	//국내선수 게시판으로 이동
+
+
+	// 국내선수 게시판으로 이동
 	@RequestMapping("/nationalBoard.do")
 	public String nationalboardGET() {
-		
+
 		return "/board/nationalBoard";
-		
+
 	}
-	
-	//게시글 등록 페이지로 이동
+	// 게시글 등록 페이지로 이동
+
 	@RequestMapping("/boardWrite.do")
-	public String nationalBoardWrite() {
-		
-		return "/board/boardWrite";
-		
+		public String nationalBoardWrite() {
+			
+			return "/board/boardWrite";
+
 	}
 	@RequestMapping("/boardView.do")
 	public String nationalBoardView() {
@@ -91,8 +92,21 @@ public class boardController {
 		
 		return list;
 
+
 	}
+			
 	
+//	//게시글 등록 처리
+//	@RequestMapping(value = "/write", method=RequestMethod.POST)
+//	
+//	public String writePOST(Board board, RedirectAttributes redirectAttributes) {
+//		
+//		
+//		redirectAttributes.addFlashAttribute("msg", "게시글 등록 성공!");
+//		
+//		return "redirect:/board/list";
+//	}
 	
 	
 }
+
