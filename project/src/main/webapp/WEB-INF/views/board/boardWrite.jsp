@@ -123,13 +123,8 @@
 			<button type="submit" class="btn btn-outline-success">올리기</button>
 			<button type="button" class="btn btn-outline-danger">취소</button>		  
 		  </div>
-		</form>
-		
-	
-	
+		</form>	
 	</div>
-
-
 
 
 

@@ -11,12 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.spring.board.model.service.boardService;
@@ -39,14 +42,21 @@ public class boardController {
 		return "/board/nationalBoard";
 
 	}
-
 	// 게시글 등록 페이지로 이동
+
 	@RequestMapping("/boardWrite.do")
 		public String nationalBoardWrite() {
 			
 			return "/board/boardWrite";
 
 	}
+	@RequestMapping("/boardView.do")
+	public String nationalBoardView() {
+
+		
+		return "/board/boardView";
+	}
+	
 	@PostMapping("/insertBoardImg.do")
 	@ResponseBody
 	public List<String> upload(@RequestParam("file") MultipartFile []file, HttpServletRequest request) {

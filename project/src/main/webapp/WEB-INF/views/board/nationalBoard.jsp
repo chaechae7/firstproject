@@ -12,6 +12,8 @@
     <style>
         .search-box{display: inline-block;}
     </style>
+
+    
 <br>
 <br>
 <br>
@@ -27,14 +29,14 @@
         </tr>    
         </thead>
         <tbody>
-        <tr>
+        <tr class="naB_View">
             <td>1</td>
-            <td>안녕하세요</td>
+            <td><a href="${pageContext.request.contextPath}/board/boardView.do">안녕하세요</a></td>
             <td>테스트</td>
             <td>2020.06.22</td>
             <td>2</td>
         </tr>
-
+       
         <tr>
             <td>2</td>
             <td>안녕히가세요</td>
