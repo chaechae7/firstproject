@@ -18,7 +18,11 @@
   <!-- summmer note css -->
    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> 
-    
+ 
+<style>
+   .form-control{width: 70%;}
+   .modal-backdrop{z-index: 1;}
+</style>    
  
 </head>
 <body>
@@ -35,7 +39,7 @@
             <a class="nav-link" href="${pageContext.request.contextPath}/board/nationalBoard.do">국내선수</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="services.html">해외선수</a>
+            <a class="nav-link" href="">해외선수</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contact.html">포메이션 분석</a>
@@ -77,11 +81,11 @@
 
 
 	<li>
-		<!-- Button trigger modal -->
+		<!-- 로그인버튼 -->
 		<li class="nav-item">
             <a class="nav-link" data-toggle="modal" data-target="#exampleModal">로그인</a>
         </li>
-		<!-- Modal -->
+		<!-- 로그인 모달 -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -141,9 +145,7 @@
 		                </button>
                     </div>
                     <!-- 회원가입 폼 시작-->
-                    <style>
-                        .form-control{width: 70%;}
-                    </style>
+                    
 		            <div class="modal-body">
                         <form action="">
                             <div class="form-group row">
