@@ -1,5 +1,6 @@
 package com.kh.spring.member.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,10 +15,7 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
-	
 
-	
-	
 	//회원가입요청
 	public String enroll(Member member, RedirectAttributes redirectAttributes) {
 		
@@ -36,10 +34,10 @@ public class MemberController {
 		
 		//메세지와함께 리다이렉트
 		redirectAttributes.addFlashAttribute("msg", msg);
+
 		
 		return "redirect:/";
 	}
-	
 	
 	//myPageMain으로 이동
 	@RequestMapping("/myPageMain.do")
