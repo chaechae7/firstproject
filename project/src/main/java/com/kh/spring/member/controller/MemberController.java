@@ -34,8 +34,7 @@ public class MemberController {
 		
 		//메세지와함께 리다이렉트
 		redirectAttributes.addFlashAttribute("msg", msg);
-
-		
+	
 		return "redirect:/";
 	}
 	
