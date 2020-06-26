@@ -5,6 +5,20 @@
 
 <mapper namespace="member"> 
 
+<insert id="insertMember">
+	
+	insert into
+		TB_member
+	values(
+		#{member_id},
+		#{member_pwd},
+		#{member_nik},
+		default
+	)
+
+
+
+</insert>
 
 
 
