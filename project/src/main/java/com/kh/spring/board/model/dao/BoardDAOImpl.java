@@ -16,8 +16,9 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public List<Board> boardList(Board board) {
+		System.out.println("BoardDAO"+board);
 		
-		return sqlSession.selectList("board.");
+		return sqlSession.selectList("Board.boardList", board);
 	}
 	
 }

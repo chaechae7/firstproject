@@ -38,26 +38,24 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 
-	/*
-	 * // 국내선수 게시판으로 이동 후, 게시글 list 출력
-	 * 
-	 * @RequestMapping(value = "/nationalBoard.do", method = RequestMethod.GET)
-	 * public String nationalBoardList(Board board, Model model) {
-	 * 
-	 * List<Board> list = boardService.boardList(board); model.addAttribute("list",
-	 * list);
-	 * 
-	 * return "/board/nationalBoard";
-	 * 
-	 * }
-	 */
+	 // 국내선수 게시판으로 이동 후, 게시글 list 출력 
+	 @RequestMapping(value = "/nationalBoard.do", method = RequestMethod.GET)
+	 public String nationalBoardList(Board board, Model model) {
+	 
+	 List<Board> list = boardService.boardList(board); 
+	 model.addAttribute("list", list);
+	 
+	 return "/board/nationalBoard";
+	 
+	 }
+	 
 	
-	@RequestMapping("/nationalBoard.do")
-	public String nationalBoardList() {
+	//@RequestMapping("/nationalBoard.do")
+	//public String nationalBoardList() {
 
-		return "/board/nationalBoard";
+	//	return "/board/nationalBoard";
 
-	}
+	//}
 	
 	// 게시글 등록 페이지로 이동
 	@RequestMapping("/boardWrite.do")
