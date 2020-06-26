@@ -20,38 +20,24 @@
 <div class="container">    
     <table class="table table-striped">
         <thead>
-        <tr>
-            <th>번호</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>날짜</th>
-            <th>조회수</th>
-        </tr>    
+        	<tr>
+            	<th>번호</th>
+            	<th>제목</th>
+            	<th>작성자</th>
+            	<th>날짜</th>
+            	<th>조회수</th>
+        	</tr>    
         </thead>
         <tbody>
-        <tr class="naB_View">
-            <td>1</td>
-            <td><a href="${pageContext.request.contextPath}/board/boardView.do">안녕하세요</a></td>
-            <td>테스트</td>
-            <td>2020.06.22</td>
-            <td>2</td>
-        </tr>
-       
-        <tr>
-            <td>2</td>
-            <td>안녕히가세요</td>
-            <td>테스트</td>
-            <td>2020.06.22</td>
-            <td>5</td>
-        </tr>
-
-        <tr>
-            <td>3</td>
-            <td>2020년 6월 22일</td>
-            <td>관리자</td>
-            <td>2020.06.22</td>
-            <td>10</td>
-        </tr>
+        <c:forEach items="${list}" var="b">
+        	<tr class="naB_View">
+            	<td>${b.boardNo}</td>
+            	<td><a href="${pageContext.request.contextPath}/board/boardView.do">${b.boardTitle}</a></td>
+            	<td>${b.boardUser}</td>
+            	<td>${b.boardDate}</td>
+            	<td>${b.boardCount}</td>
+        	</tr>
+        </c:forEach>
         </tbody>
     </table>
 

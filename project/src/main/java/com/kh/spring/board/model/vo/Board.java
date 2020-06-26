@@ -20,21 +20,25 @@ public class Board implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private int board_no;
-	private String member_id;
-	private int c_code;
-	private String board_titile;
-	private String board_user;
-	private Date board_date;
-	private int counter;
-	private String board_originalfile1;
-	private String board_originalfile2;
-	private String board_originalfile3;
-	private String board_renamedfile1;
-	private String board_renamedfile2;
-	private String board_renamedfile3;
-	private int board_like;
-	private int board_unlike;
+	private int boardNo;
+	private String memberId;
+	private int cCode;
+	private String boardTitle;
+	private String boardUser;
+	private Date boardDate;
+	private int boardCount;
+	private String boardOriginalfile1;
+	private String boardOriginalfile2;
+	private String boardOriginalfile3;
+	private String boardRenamedfile1;
+	private String boardRenamedfile2;
+	private String boardRenamedfile3;
+	private int boardLike;
+	private int boardUnlike;
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 
 }
