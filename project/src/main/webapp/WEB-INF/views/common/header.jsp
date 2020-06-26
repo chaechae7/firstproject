@@ -26,6 +26,15 @@
  
 </head>
 <body>
+	<c:if test="${not empty msg}">
+	<script>
+		$(function(){
+			alert("${msg}");
+		});
+	</script>
+	</c:if>
+	<% session.removeAttribute("msg"); %>
+	
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
@@ -147,29 +156,29 @@
                     <!-- 회원가입 폼 시작-->
                     
 		            <div class="modal-body">
-                        <form action="${pageContext.request.contextPath }/member/enroll" method="post">
+                        <form action="${pageContext.request.contextPath }/member/enroll.do" method="POST">
                             <div class="form-group row">
                                 <label for="inputId" class="col-sm-4 col-form-label">아이디</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="member_id" name="member_id" required="required">
+                                    <input type="text" class="form-control" id="memberId" name="memberId" required="required">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-4 col-form-label">비밀번호</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="member_pwd" name="member_pwd" required="required">
+                                    <input type="password" class="form-control" id="memberPwd" name="memberPwd" required="required">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword-check" class="col-sm-4 col-form-label">비밀번호 확인</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="pwd_check" name="pwd_check" required="required">
+                                    <input type="password" class="form-control" id="pwdChk" name="pwdChk" required="required">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputNickName" class="col-sm-4 col-form-label">닉네임</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="member_nik" name="member_nik" required="required">
+                                    <input type="text" class="form-control" id="memberNik" name="memberNik" required="required">
                                 </div>
                             </div>
 		            <div class="modal-footer">
