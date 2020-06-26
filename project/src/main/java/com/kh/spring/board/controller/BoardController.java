@@ -48,14 +48,6 @@ public class BoardController {
 	 return "/board/nationalBoard";
 	 
 	 }
-	 
-	
-	//@RequestMapping("/nationalBoard.do")
-	//public String nationalBoardList() {
-
-	//	return "/board/nationalBoard";
-
-	//}
 	
 	// 게시글 등록 페이지로 이동
 	@RequestMapping("/boardWrite.do")

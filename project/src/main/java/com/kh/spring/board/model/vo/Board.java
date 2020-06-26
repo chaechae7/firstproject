@@ -20,13 +20,13 @@ public class Board implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private int boardNO;
+	private int boardNo;
 	private String memberId;
 	private int cCode;
-	private String boardTitile;
+	private String boardTitle;
 	private String boardUser;
 	private Date boardDate;
-	private int counter;
+	private int boardCount;
 	private String boardOriginalfile1;
 	private String boardOriginalfile2;
 	private String boardOriginalfile3;
