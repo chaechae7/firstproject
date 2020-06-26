@@ -9,8 +9,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.kh.spring.board.model.service.boardService;
+import com.kh.spring.board.model.service.BoardService;
 import com.kh.spring.board.model.vo.Board;
 
 import com.kh.spring.common.util.*;
@@ -32,27 +33,43 @@ import com.kh.spring.common.util.*;
 @Controller
 @RequestMapping("/board")
 
-public class boardController {
+public class BoardController {
+	
+	@Autowired
+	BoardService boardService;
 
-
-	// 국내선수 게시판으로 이동
+	/*
+	 * // 국내선수 게시판으로 이동 후, 게시글 list 출력
+	 * 
+	 * @RequestMapping(value = "/nationalBoard.do", method = RequestMethod.GET)
+	 * public String nationalBoardList(Board board, Model model) {
+	 * 
+	 * List<Board> list = boardService.boardList(board); model.addAttribute("list",
+	 * list);
+	 * 
+	 * return "/board/nationalBoard";
+	 * 
+	 * }
+	 */
+	
 	@RequestMapping("/nationalBoard.do")
-	public String nationalboardGET() {
+	public String nationalBoardList() {
 
 		return "/board/nationalBoard";
 
 	}
+	
 	// 게시글 등록 페이지로 이동
-
 	@RequestMapping("/boardWrite.do")
 		public String nationalBoardWrite() {
 			
-			return "/board/boardWrite";
+		return "/board/boardWrite";
 
 	}
+	
+	//게시글 view페이지
 	@RequestMapping("/boardView.do")
 	public String nationalBoardView() {
-
 		
 		return "/board/boardView";
 	}
@@ -92,21 +109,8 @@ public class boardController {
 		
 		return list;
 
-
 	}
 			
-	
-//	//게시글 등록 처리
-//	@RequestMapping(value = "/write", method=RequestMethod.POST)
-//	
-//	public String writePOST(Board board, RedirectAttributes redirectAttributes) {
-//		
-//		
-//		redirectAttributes.addFlashAttribute("msg", "게시글 등록 성공!");
-//		
-//		return "redirect:/board/list";
-//	}
-	
 	
 }
 
