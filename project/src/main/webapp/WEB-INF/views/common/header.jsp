@@ -147,37 +147,37 @@
                     <!-- 회원가입 폼 시작-->
                     
 		            <div class="modal-body">
-                        <form action="">
+                        <form action="${pageContext.request.contextPath }/member/enroll" method="post">
                             <div class="form-group row">
                                 <label for="inputId" class="col-sm-4 col-form-label">아이디</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputId">
+                                    <input type="text" class="form-control" id="member_id" name="member_id" required="required">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-4 col-form-label">비밀번호</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="inputPassword">
+                                    <input type="password" class="form-control" id="member_pwd" name="member_pwd" required="required">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword-check" class="col-sm-4 col-form-label">비밀번호 확인</label>
                                 <div class="col-sm-10">
-                                    <input type="password-check" class="form-control" id="inputPassword-check">
+                                    <input type="password" class="form-control" id="pwd_check" name="pwd_check" required="required">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputNickName" class="col-sm-4 col-form-label">닉네임</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputNickName">
+                                    <input type="text" class="form-control" id="member_nik" name="member_nik" required="required">
                                 </div>
                             </div>
-                        </form>
-                    </div>
 		            <div class="modal-footer">
-		                <button type="button" class="btn btn-success">회원가입</button>
+		                <button type="submit" class="btn btn-success">회원가입</button>
 		                <button type="button" class="btn btn-danger" data-dismiss="modal">닫기</button>
 		            </div>
+                        </form>
+                    </div>
 		        </div>
 		    </div>
 		</div>
