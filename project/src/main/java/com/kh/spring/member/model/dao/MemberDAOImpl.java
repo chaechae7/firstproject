@@ -19,4 +19,11 @@ public class MemberDAOImpl implements MemberDAO {
 		return sqlsession.insert("member.insertMember", member);
 	}
 
+
+	@Override
+	public Member selectOne(String memberId) {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne("member.selectOne",memberId);
+	}
+
 }

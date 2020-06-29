@@ -104,16 +104,18 @@
 		          <span aria-hidden="true">&times;</span>
 		        </button>
 		      </div>
+		     
+		     <form action="${pageContext.request.contextPath}/member/login.do" method="GET">
 		      <div class="modal-body">
 		      
 				<label for="id">ID</label>
 				<div>
-					<input type="text" id="user_id" class="form-control" name="user_id" required="required" />
+					<input type="text" id="Id" class="form-control" name="Id" required="required" />
 				</div>
 				
 				<label for="id">PASSWORD</label>
 				<div>
-					<input type="password" id="user_pwd" class="form-control" name="user_pwd" required="required" />
+					<input type="password" id="Pwd" class="form-control" name="Pwd" required="required" />
 				</div>			        
 		        
 		        <div class="form-group row">
@@ -132,9 +134,10 @@
                             </div>	        
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-primary">Login</button>
+		        <input type="submit" class="btn btn-primary" value="Login"/>
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 		      </div>
+		     </form>  
 		    </div>
 		  </div>
 		</div>

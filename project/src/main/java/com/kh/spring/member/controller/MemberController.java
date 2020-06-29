@@ -1,21 +1,22 @@
 package com.kh.spring.member.controller;
 
 
-import org.apache.jasper.tagplugins.jstl.core.Redirect;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
 import com.kh.spring.member.model.service.MemberService;
 import com.kh.spring.member.model.vo.Member;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 @RequestMapping("/member")
 public class MemberController {
@@ -33,7 +34,6 @@ public class MemberController {
 //		String bcryptPwd = bcrypt.encode(memberPwd);
 //		member.setMember_pwd(bcryptPwd);
 		
-		
 		int result = memberService.insertMember(member);
 		
 		String msg = "";
@@ -45,6 +45,31 @@ public class MemberController {
 		
 		 return "redirect:/";
 	}
+	
+	//로그인
+	@GetMapping("login.do")
+	public String login(@RequestParam("Id") String memberId,
+						@RequestParam("Pwd") String memberPwd,
+			HttpSession session, RedirectAttributes redirectAttributes) {
+		
+		Member member = memberService.selectOne(memberId);
+		
+	
+		if(member != null) {
+			
+			if(member.getMemberPwd().equals(memberPwd)) {
+				System.out.println("로그인성공");
+				session.setAttribute("memberLoggedIn", member);
+				
+			}else
+				session.setAttribute("msg", "입력하신 아이디 혹은 비밀번호가 일치하지 않습니다.");
+
+		}else 
+			session.setAttribute("msg", "입력하신 아이디 혹은 비밀번호가 일치하지 않습니다.");
+		
+		return "redirect:/";
+	}
+	
 	
 	//myPageMain으로 이동
 	@RequestMapping("/myPageMain.do")
