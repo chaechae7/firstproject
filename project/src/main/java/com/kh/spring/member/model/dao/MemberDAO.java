@@ -9,4 +9,6 @@ public interface MemberDAO {
 
 	int insertMember(Member member);
 
+	Member selectOne(String memberId);
+
 }
