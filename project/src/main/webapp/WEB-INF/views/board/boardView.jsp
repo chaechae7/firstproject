@@ -76,23 +76,26 @@
     }
   </style>
   <body>
+  
+
+  
     <!-- 원본글 start -->
     <h3 class="board-title">
-        <span class="badge badge-primary">국내선수</span>
-        안녕하세요
+        <span class="badge badge-primary">${board.categoryName}</span>
+        ${board.boardTitle}
     </h3>
     <div class="card text-center">
         <div class="card-header">
             <div class="board-info-left">
-                작성자 <strong>테스트</strong>
+                작성자 <strong>${board.boardUser}</strong>
             </div>
             <div class="board-info-right">
-                조회수 <strong>2</strong> 추천 <strong>5</strong> 댓글 <strong>3</strong> 작성일 2020/06/22
+                조회수 <strong>${board.boardCount}</strong> 추천 <strong>${board.boardLike}</strong> 비추천 <strong>${board.boardUnlike}</strong> 작성일 ${board.boardDate}
             </div>
         </div>
         <div class="card-body">
             <p class="card-text">
-                않은 이웃 때 북간도에 계십니다. 마디씩 어머니, 멀리 아직 하늘에는 하나에 나는 봅니다. 하늘에는 우는 책상을 봅니다. 밤이 어머니, 소녀들의 보고, 계십니다. 불러 이름과, 멀리 벌써 비둘기, 위에 다 이름과, 이런 봅니다. 딴은 나는 다 내 부끄러운 어머님, 쉬이 아무 오면 있습니다. 가득 어머님, 노새, 이름과, 하나에 잠, 별이 부끄러운 듯합니다. 릴케 당신은 별이 잔디가 별 쓸쓸함과 별 속의 하나에 봅니다. 너무나 속의 피어나듯이 내 멀듯이, 이런 묻힌 별 있습니다. 잔디가 이웃 어머니 걱정도 멀듯이, 있습니다. 이름자 했던 내린 밤을 다하지 언덕 듯합니다.
+                ${board.boardContents}
             </p>
             <div class="recommend-button">
                 <div class="submit-button-left-space"></div>

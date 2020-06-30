@@ -9,6 +9,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.jasper.tagplugins.jstl.core.Redirect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.kh.spring.board.model.service.BoardService;
 import com.kh.spring.board.model.vo.Board;
@@ -40,11 +42,11 @@ public class BoardController {
 
 	 // 국내선수 게시판으로 이동 후, 게시글 list 출력 
 	 @RequestMapping(value = "/nationalBoard.do", method = RequestMethod.GET)
-	 public String nationalBoardList(Board board, Model model) {
-	 
-	 List<Board> list = boardService.boardList(board); 
+	 public String nationalBoardList(Model model) {
+		 
+	 List<Board> list = boardService.boardList(); 
 	 model.addAttribute("list", list);
-	 
+	  
 	 return "/board/nationalBoard";
 	 
 	 }
@@ -57,12 +59,14 @@ public class BoardController {
 
 	}
 	
-	//게시글 view페이지
-	@RequestMapping("/boardView.do")
-	public String nationalBoardView() {
+	//선택한 게시글 view페이지로 이동
+	@RequestMapping(value = "/boardView.do", method = RequestMethod.GET)
+	public void nationalBoardView(@RequestParam(value = "boardNo") int boardNo, Model model) {
+		Board board = boardService.selectOnePost(boardNo);
+		model.addAttribute("board", board);
 		
-		return "/board/boardView";
 	}
+	
 	
 	@PostMapping("/insertBoardImg.do")
 	@ResponseBody

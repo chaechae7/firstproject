@@ -22,7 +22,7 @@ public class Board implements Serializable{
 	
 	private int boardNo;
 	private String memberId;
-	private int cCode;
+	private String categoryName;
 	private String boardTitle;
 	private String boardUser;
 	private Date boardDate;
@@ -35,6 +35,7 @@ public class Board implements Serializable{
 	private String boardRenamedfile3;
 	private int boardLike;
 	private int boardUnlike;
+	private String boardContents;
 	
 	public static long getSerialversionuid() {
 		return serialVersionUID;

@@ -6,6 +6,8 @@ import com.kh.spring.board.model.vo.Board;
 
 public interface BoardDAO {
 
-	List<Board> boardList(Board board);
+	List<Board> boardList();
+
+	Board selectPostOne(int boardNo);
 
 }
