@@ -47,7 +47,7 @@ public class MemberController {
 	}
 	
 	//로그인
-	@GetMapping("login.do")
+	@GetMapping("/login.do")
 	public String login(@RequestParam("Id") String memberId,
 						@RequestParam("Pwd") String memberPwd,
 			HttpSession session, RedirectAttributes redirectAttributes) {
@@ -66,6 +66,15 @@ public class MemberController {
 
 		}else 
 			session.setAttribute("msg", "입력하신 아이디 혹은 비밀번호가 일치하지 않습니다.");
+		
+		return "redirect:/";
+	}
+	//로그아웃
+	@GetMapping("/logout.do")
+	public String logout(HttpSession session) {
+		
+		
+		session.removeAttribute("memberLoggedIn");
 		
 		return "redirect:/";
 	}
