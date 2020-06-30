@@ -22,6 +22,7 @@
 <style>
    .form-control{width: 70%;}
    .modal-backdrop{z-index: 1;}
+   .loginAfter{color: white;}
 </style>    
  
 </head>
@@ -90,10 +91,22 @@
 
 
 	<li>
+		
 		<!-- 로그인버튼 -->
+		<c:if test="${empty memberLoggedIn}">
 		<li class="nav-item">
             <a class="nav-link" data-toggle="modal" data-target="#exampleModal">로그인</a>
         </li>
+        
+        </c:if>
+        <c:if test="${not empty memberLoggedIn}">
+        <li class="nav-item">
+            <a class="nav-link loginAfter" data-toggle="" data-target="#exampleModal">${memberLoggedIn.memberNik }님, 안녕하세요.</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
+        </li>
+        </c:if>
 		<!-- 로그인 모달 -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
@@ -104,7 +117,7 @@
 		          <span aria-hidden="true">&times;</span>
 		        </button>
 		      </div>
-		     
+		  
 		     <form action="${pageContext.request.contextPath}/member/login.do" method="GET">
 		      <div class="modal-body">
 		      
@@ -143,9 +156,11 @@
 		</div>
 	</li>
 	<!-- Sign Up Modal Start -->
+	<c:if test="${empty memberLoggedIn}">
 		<li class="nav-item">
             <a class="nav-link" data-toggle="modal" data-target="#exampleModal2">회원가입</a>
         </li>
+    </c:if>    
 		<!-- Modal Popup -->
 		<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		    <div class="modal-dialog">
