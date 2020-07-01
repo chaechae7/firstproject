@@ -6,6 +6,8 @@ import com.kh.spring.board.model.vo.Board;
 
 public interface BoardService {
 
-	List<Board> boardList(Board board);
+	List<Board> boardList();
+
+	Board selectOnePost(int boardNo);
 	
 }

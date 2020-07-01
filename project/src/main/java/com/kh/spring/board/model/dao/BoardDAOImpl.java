@@ -15,10 +15,15 @@ public class BoardDAOImpl implements BoardDAO {
 	SqlSessionTemplate sqlSession;
 
 	@Override
-	public List<Board> boardList(Board board) {
-		System.out.println("BoardDAO"+board);
+	public List<Board> boardList() {
 		
-		return sqlSession.selectList("Board.boardList", board);
+		return sqlSession.selectList("Board.boardList");
+	}
+
+	@Override
+	public Board selectPostOne(int boardNo) {
+
+		return sqlSession.selectOne("Board.selectPostOne", boardNo);
 	}
 	
 }

@@ -15,13 +15,15 @@ public class BoardServiceimpl implements BoardService {
 	private BoardDAO boardDAO;
 
 	@Override
-	public List<Board> boardList(Board board) {
+	public List<Board> boardList() {
 
-		return boardDAO.boardList(board);
+		return boardDAO.boardList();
 	}
-	
 
-
-
+	@Override
+	public Board selectOnePost(int boardNo) {
+		
+		return boardDAO.selectPostOne(boardNo);
+	}
 	
 }

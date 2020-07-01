@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ page import="com.kh.spring.board.model.vo.Board"  %>
 <fmt:requestEncoding value="utf-8"/> <!-- 인코딩설정 안해주면 한글 깨짐  -->
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param value="" name="pageTitle"/>
@@ -32,7 +33,7 @@
         <c:forEach items="${list}" var="b">
         	<tr class="naB_View">
             	<td>${b.boardNo}</td>
-            	<td><a href="${pageContext.request.contextPath}/board/boardView.do">${b.boardTitle}</a></td>
+            	<td><a href="${pageContext.request.contextPath}/board/boardView.do?boardNo=${b.boardNo}">${b.boardTitle}</a></td>
             	<td>${b.boardUser}</td>
             	<td>${b.boardDate}</td>
             	<td>${b.boardCount}</td>
