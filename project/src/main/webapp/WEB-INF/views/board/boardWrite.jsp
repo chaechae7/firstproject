@@ -103,21 +103,22 @@
 		<form action="${pageContext.request.contextPath}/board/boardUpload.do" autocomplete="on" method="POST" onsubmit="return boardValidate();" enctype="multipart/form-data">
 		  <div class="form-group">
 		    <label for="exampleFormControlInput1">제목</label>
-		    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="제목을 입력하세요." required="required">
+		    <input type="text" class="form-control" id="boardTitle" name="boardTitle"  placeholder="제목을 입력하세요." required="required">
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleFormControlInput1">작성자</label>
-		    <input type="text" class="form-control" id="exampleFormControlInput1" readonly="readonly">
+		    <input type="text" class="form-control" id="nickname" name="nickname">
 		  </div>
+		  <input type="hidden" id="memberId" name="memberId" value="${board.mmberId}">
 		   <div class="form-group">
 		    <label for="exampleFormControlSelect1">카테고리 설정</label>
-		    <select class="form-control" id="exampleFormControlSelect1" required="required">
-		      <option value="national">국내선수</option>
+		    <select class="form-control" id="categoryName" name="categoryName" required="required">
+		      <option value="국내선수">국내선수</option>
 		    </select>
  		 </div>
 		  <div class="form-group">
 		    <label for="exampleFormControlTextarea1">내용</label>
-		    <textarea class="form-control" id="summernote" rows="8" required="required"></textarea>
+		    <textarea class="form-control" id="summernote" name ="boardContents" rows="8" required="required"></textarea>
 		  </div>	
 		  <div class="md-4 offset-10">
 			<button type="submit" class="btn btn-outline-success">올리기</button>

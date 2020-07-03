@@ -17,4 +17,28 @@
 		where 
 			board_no = #{boardNo}
 	</select>
+	
+	<!-- 게시글 작성하기 -->
+	<insert id="boardUpload">
+		insert into 
+			tb_board 
+			values(
+				seq_tb_board.nextval,
+				#{memberId},
+				#{categoryName},
+				#{boardTitle},
+				sysdate,
+				#{boardCount},
+				#{boardOriginalfile1},
+				#{boardOriginalfile2},
+				#{boardOriginalfile3},
+				#{boardRenamedfile1},
+				#{boardRenamedfile2},
+				#{boardRenamedfile3},
+				#{boardLike},
+				#{boardUnlike},
+				#{boardContents},
+				#{nickname}
+				)
+	</insert>
 </mapper>

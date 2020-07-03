@@ -34,7 +34,7 @@
         	<tr class="naB_View">
             	<td>${b.boardNo}</td>
             	<td><a href="${pageContext.request.contextPath}/board/boardView.do?boardNo=${b.boardNo}">${b.boardTitle}</a></td>
-            	<td>${b.boardUser}</td>
+            	<td>${b.nickname}</td>
             	<td>${b.boardDate}</td>
             	<td>${b.boardCount}</td>
         	</tr>
@@ -63,11 +63,7 @@
         </form>
     </div>
 
-
-    <button type="button" class="btn btn-outline-secondary float-right">글쓰기</button>
-
     <input type="button" class="btn btn-outline-secondary float-right" onclick="location.href='${pageContext.request.contextPath}/board/boardWrite.do'" value="글쓰기"/>
-
 
     <div class="text-center">
         <ul class="pagination justify-content-center">

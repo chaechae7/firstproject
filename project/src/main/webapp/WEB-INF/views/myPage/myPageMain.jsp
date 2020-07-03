@@ -122,7 +122,7 @@
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">닉네임</label>
                 <div class="col-sm-10">
-                    <input type="memberId" class="form-control" id="inputId" placeholder="유저1">
+                    <input type="nickname" class="form-control" id="inputId" placeholder="유저1">
                 </div>
             </div>
             <div class="form-group row">

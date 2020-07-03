@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,12 +52,23 @@ public class BoardController {
 	 
 	 }
 	
-	// 게시글 등록 페이지로 이동
+	// 게시글 쓰기 페이지로 이동
 	@RequestMapping("/boardWrite.do")
 		public String nationalBoardWrite() {
 			
 		return "/board/boardWrite";
 
+	}
+	
+	//게시글 쓰기
+	@RequestMapping(value = "/boardUpload.do", method =  RequestMethod.POST)		
+		public String boardUpload(Board board, RedirectAttributes redirectAttributes) {
+		
+		int result = boardService.boardUpload(board);
+		redirectAttributes.addFlashAttribute("msg", result>0?"등록 성공!":"등록 실패!");
+		
+		return "redirect:/board/nationalBoard.do";
+		
 	}
 	
 	//선택한 게시글 view페이지로 이동

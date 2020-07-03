@@ -21,9 +21,9 @@ public class Member implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private String member_id;
-	private String member_pwd;
-	private String member_nik;
+	private String memberId;
+	private String memberPwd;
+	private String memberNik;
 
 	
 	

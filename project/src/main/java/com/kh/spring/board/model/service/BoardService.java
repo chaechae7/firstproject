@@ -9,5 +9,9 @@ public interface BoardService {
 	List<Board> boardList();
 
 	Board selectOnePost(int boardNo);
+
+	int boardUpload(Board board);
+
+
 	
 }

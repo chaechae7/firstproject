@@ -74,11 +74,11 @@
     .card{
         margin-top: 5%;
     }
+    .text-right {
+        margin-top: -3%;
+    }
   </style>
   <body>
-  
-
-  
     <!-- 원본글 start -->
     <h3 class="board-title">
         <span class="badge badge-primary">${board.categoryName}</span>
@@ -87,7 +87,7 @@
     <div class="card text-center">
         <div class="card-header">
             <div class="board-info-left">
-                작성자 <strong>${board.boardUser}</strong>
+                작성자 <strong>${board.nickname}</strong>
             </div>
             <div class="board-info-right">
                 조회수 <strong>${board.boardCount}</strong> 추천 <strong>${board.boardLike}</strong> 비추천 <strong>${board.boardUnlike}</strong> 작성일 ${board.boardDate}
@@ -103,6 +103,11 @@
                 <a href="#" class="btn btn-danger">비추천</a>
             </div>
         </div>
+    </div>
+    <div class="col-md-12 text-right">
+        <input class="btn btn-success" type="button" value="수정">
+        <input class="btn btn-danger" type="button" value="삭제">
+        <input class="btn btn-primary" type="button" value="글쓰기">
     </div>
     <!-- 원본글 end -->
     <div class="text-center">
