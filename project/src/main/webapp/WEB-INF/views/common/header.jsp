@@ -22,14 +22,27 @@
 <style>
    .form-control{width: 70%;}
    .modal-backdrop{z-index: 1;}
+
    .navbar-dark .navbar-nav .nav-link {
     color: rgba(255,255,255,.5);
     cursor: pointer;
 	}
+
+   .loginAfter{color: white;}
+
 </style>    
  
 </head>
 <body>
+	<c:if test="${not empty msg}">
+	<script>
+		$(function(){
+			alert("${msg}");
+		});
+	</script>
+	</c:if>
+	<% session.removeAttribute("msg"); %>
+	
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
@@ -85,10 +98,22 @@
 
 
 	<li>
+		
 		<!-- 로그인버튼 -->
+		<c:if test="${empty memberLoggedIn}">
 		<li class="nav-item">
             <a class="nav-link" data-toggle="modal" data-target="#exampleModal">로그인</a>
         </li>
+        
+        </c:if>
+        <c:if test="${not empty memberLoggedIn}">
+        <li class="nav-item">
+            <a class="nav-link loginAfter" data-toggle="" data-target="#exampleModal">${memberLoggedIn.memberNik }님, 안녕하세요.</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
+        </li>
+        </c:if>
 		<!-- 로그인 모달 -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
@@ -99,16 +124,18 @@
 		          <span aria-hidden="true">&times;</span>
 		        </button>
 		      </div>
+		  
+		     <form action="${pageContext.request.contextPath}/member/login.do" method="GET">
 		      <div class="modal-body">
 		      
 				<label for="id">ID</label>
 				<div>
-					<input type="text" id="user_id" class="form-control" name="user_id" required="required" />
+					<input type="text" id="Id" class="form-control" name="Id" required="required" />
 				</div>
 				
 				<label for="id">PASSWORD</label>
 				<div>
-					<input type="password" id="user_pwd" class="form-control" name="user_pwd" required="required" />
+					<input type="password" id="Pwd" class="form-control" name="Pwd" required="required" />
 				</div>			        
 		        
 		        <div class="form-group row">
@@ -127,17 +154,20 @@
                             </div>	        
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-primary">Login</button>
+		        <input type="submit" class="btn btn-primary" value="Login"/>
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 		      </div>
+		     </form>  
 		    </div>
 		  </div>
 		</div>
 	</li>
 	<!-- Sign Up Modal Start -->
+	<c:if test="${empty memberLoggedIn}">
 		<li class="nav-item">
             <a class="nav-link" data-toggle="modal" data-target="#exampleModal2">회원가입</a>
         </li>
+    </c:if>    
 		<!-- Modal Popup -->
 		<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		    <div class="modal-dialog">
@@ -151,37 +181,37 @@
                     <!-- 회원가입 폼 시작-->
                     
 		            <div class="modal-body">
-                        <form action="">
+                        <form action="${pageContext.request.contextPath }/member/enroll.do" method="POST">
                             <div class="form-group row">
                                 <label for="inputId" class="col-sm-4 col-form-label">아이디</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputId">
+                                    <input type="text" class="form-control" id="memberId" name="memberId" required="required">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword" class="col-sm-4 col-form-label">비밀번호</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="inputPassword">
+                                    <input type="password" class="form-control" id="memberPwd" name="memberPwd" required="required">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword-check" class="col-sm-4 col-form-label">비밀번호 확인</label>
                                 <div class="col-sm-10">
-                                    <input type="password-check" class="form-control" id="inputPassword-check">
+                                    <input type="password" class="form-control" id="pwdChk" name="pwdChk" required="required">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputNickName" class="col-sm-4 col-form-label">닉네임</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputNickName">
+                                    <input type="text" class="form-control" id="memberNik" name="memberNik" required="required">
                                 </div>
                             </div>
-                        </form>
-                    </div>
 		            <div class="modal-footer">
-		                <button type="button" class="btn btn-success">회원가입</button>
+		                <button type="submit" class="btn btn-success">회원가입</button>
 		                <button type="button" class="btn btn-danger" data-dismiss="modal">닫기</button>
 		            </div>
+                        </form>
+                    </div>
 		        </div>
 		    </div>
 		</div>
