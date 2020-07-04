@@ -10,4 +10,10 @@ public interface BoardDAO {
 
 	Board selectPostOne(int boardNo);
 
+	int boardUpload(Board board);
+
+	int boardDelete(int boardNo);
+
+
+
 }

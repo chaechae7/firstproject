@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,7 +52,7 @@ public class BoardController {
 	 
 	 }
 	
-	// 게시글 등록 페이지로 이동
+	//게시글 쓰기 페이지로 이동
 	@RequestMapping("/boardWrite.do")
 		public String nationalBoardWrite() {
 			
@@ -59,10 +60,51 @@ public class BoardController {
 
 	}
 	
-	//선택한 게시글 view페이지로 이동
+	//게시글 쓰기
+	@RequestMapping(value = "/boardUpload.do", method =  RequestMethod.POST)		
+		public String boardUpload(Board board, RedirectAttributes redirectAttributes) {
+		
+		int result = boardService.boardUpload(board);
+		redirectAttributes.addFlashAttribute("msg", result>0?"등록 성공!":"등록 실패!");
+		
+		return "redirect:/board/nationalBoard.do";
+		
+	}
+	
+	//게시글 수정 view 페이지
+	@RequestMapping(value = "/boardModify.do", method = RequestMethod.GET)
+	public String boardModify(@RequestParam(value = "boardNo") int boardNo, Model model) {
+		
+		Board board = boardService.selectOnePost(boardNo);
+		return "/board/boardModify.do";
+	}
+		
+	//게시글 수정
+	@RequestMapping(value = "/boardModify.do", method = RequestMethod.POST)
+		public String boardModify(Board board, RedirectAttributes redirectAttributes) {
+		
+//		int result = boardService.boardModify(board);
+//		redirectAttributes.addFlashAttribute("msg", result>0?"수정 성공!":"수정 실패!");
+		
+		return "redirect:/board/nationalBoard.do";
+	}
+	
+	//게시글 삭제
+	@RequestMapping(value = "/boardDelete.do", method = RequestMethod.POST)
+	public String boardDelete(int boardNo, RedirectAttributes redirectAttributes) {
+		
+		int result = boardService.boardDelete(boardNo);
+		redirectAttributes.addFlashAttribute("msg", result>0?"삭제 성공!":"삭제 실패!");
+		
+		return "redirect:/board/nationalBoard.do";
+	}
+	
+	//선택한 게시글 view페이지로 이동(게시글 상세보기)
 	@RequestMapping(value = "/boardView.do", method = RequestMethod.GET)
 	public void nationalBoardView(@RequestParam(value = "boardNo") int boardNo, Model model) {
+				
 		Board board = boardService.selectOnePost(boardNo);
+			
 		model.addAttribute("board", board);
 		
 	}

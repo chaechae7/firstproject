@@ -21,10 +21,9 @@ public class Board implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private int boardNo;
-	private String memberId;
+//	private String memberId;
 	private String categoryName;
 	private String boardTitle;
-	private String boardUser;
 	private Date boardDate;
 	private int boardCount;
 	private String boardOriginalfile1;
@@ -36,6 +35,7 @@ public class Board implements Serializable{
 	private int boardLike;
 	private int boardUnlike;
 	private String boardContents;
+	private String nickname;
 	
 	public static long getSerialversionuid() {
 		return serialVersionUID;

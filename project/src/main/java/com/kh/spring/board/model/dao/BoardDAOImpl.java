@@ -25,5 +25,19 @@ public class BoardDAOImpl implements BoardDAO {
 
 		return sqlSession.selectOne("Board.selectPostOne", boardNo);
 	}
+
+	@Override
+	public int boardUpload(Board board) {
+		
+		return sqlSession.insert("Board.boardUpload", board);
+	}
+
+	@Override
+	public int boardDelete(int boardNo) {
+		
+		return sqlSession.delete("Board.boardDelete", boardNo);
+	}
+
+	
 	
 }

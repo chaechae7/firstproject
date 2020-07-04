@@ -86,12 +86,15 @@
     .card{
         margin-top: 5%;
     }
-    .modal-backdrop{z-index: 1;}
+    .text-right {
+        margin-top: -3%;
+    }
+    .modal-backdrop{
+      z-index: 1;
+    }
+
   </style>
   <body>
-  
-
-  
     <!-- 원본글 start -->
     <h3 class="board-title">
         <span class="badge badge-primary">${board.categoryName}</span>
@@ -100,7 +103,7 @@
     <div class="card text-center">
         <div class="card-header">
             <div class="board-info-left">
-                작성자 <strong>${board.boardUser}</strong>
+                작성자 <strong>${board.nickname}</strong>
             </div>
             <div class="board-info-right">
                 조회수 <strong>${board.boardCount}</strong> 추천 <strong>${board.boardLike}</strong> 비추천 <strong>${board.boardUnlike}</strong> 작성일 ${board.boardDate}
@@ -117,6 +120,20 @@
             </div>
         </div>
     </div>
+    <!-- 수정/삭제/글쓰기 버튼 -->
+    <div class="col-md-12 text-right">
+        <input class="btn btn-success" type="button" onclick="boardModify();" value="수정">
+        <input class="btn btn-danger" type="button" onclick="boardDelete();" value="삭제">
+        <input class="btn btn-primary" type="button" onclick="boardDelete();" value="글쓰기">
+    </div>
+    <!--수정/삭제 hidden form -->
+    <form action="./boardModify.do" id="ModifyForm" method="post">
+    	<input type="hidden" name="boardNo" value="${board.boardNo}" />
+    	<input type="hidden" name="boardNo" value="${board.nickname}" />
+    </form>
+    <form action="./boardDelete.do" id="deleteForm" method="post">
+    	<input type="hidden" name="boardNo" value="${board.boardNo}" />
+    </form>
     <!-- 원본글 end -->
     <div class="text-center">
         <h5 class="text-left"><strong>2</strong> 개의 댓글</h5>
@@ -194,6 +211,31 @@
         </div>
         <!-- 댓글입력창 end-->
     </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <!-- 댓글 길이에 따라 자동으로 늘어나는 textarea script -->
+    <script>
+        $("textarea.comment-input").on('keydown keyup', function () {
+            $(this).height(1).height( $(this).prop('scrollHeight')+12 );
+        });
+    </script>
+    
+    <script>
+    	function boardModify(){
+			var form = document.getElementById("modifyForm");
+			form.submit();
+		}
+   
+   		function boardDelete(){
+   			var form = document.getElementById("deleteForm");
+   			form.submit();
+   		}
+    </script>
 
   </body>
 </html>

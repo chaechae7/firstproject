@@ -107,7 +107,7 @@
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleFormControlInput1">작성자</label>
-		    <input type="text" class="form-control" id="nickname" name="nickname">
+		    <input type="text" class="form-control" id="nickname" name="nickname" readonly="readonly">
 		  </div>
 		  <input type="hidden" id="memberId" name="memberId" value="${board.mmberId}">
 		   <div class="form-group">
