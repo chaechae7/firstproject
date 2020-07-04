@@ -32,6 +32,12 @@ public class BoardServiceimpl implements BoardService {
 		return boardDAO.boardUpload(board);
 	}
 
+	@Override
+	public int boardDelete(int boardNo) {
+		
+		return boardDAO.boardDelete(boardNo);
+	}
+
 
 	
 }

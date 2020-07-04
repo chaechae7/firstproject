@@ -24,7 +24,7 @@
 			tb_board 
 			values(
 				seq_tb_board.nextval,
-				#{memberId},
+
 				#{categoryName},
 				#{boardTitle},
 				sysdate,
@@ -41,4 +41,10 @@
 				#{nickname}
 				)
 	</insert>
+	
+	<!-- 게시글 삭제하기 -->
+	<delete id="boardDelete" parameterType="int">
+		delete from tb_board where board_no = #{boardNo}
+	</delete>
+
 </mapper>

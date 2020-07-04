@@ -104,11 +104,20 @@
             </div>
         </div>
     </div>
+    <!-- 수정/삭제/글쓰기 버튼 -->
     <div class="col-md-12 text-right">
-        <input class="btn btn-success" type="button" value="수정">
-        <input class="btn btn-danger" type="button" value="삭제">
-        <input class="btn btn-primary" type="button" value="글쓰기">
+        <input class="btn btn-success" type="button" onclick="boardModify();" value="수정">
+        <input class="btn btn-danger" type="button" onclick="boardDelete();" value="삭제">
+        <input class="btn btn-primary" type="button" onclick="boardDelete();" value="글쓰기">
     </div>
+    <!--수정/삭제 hidden form -->
+    <form action="./boardModify.do" id="ModifyForm" method="post">
+    	<input type="hidden" name="boardNo" value="${board.boardNo}" />
+    	<input type="hidden" name="boardNo" value="${board.nickname}" />
+    </form>
+    <form action="./boardDelete.do" id="deleteForm" method="post">
+    	<input type="hidden" name="boardNo" value="${board.boardNo}" />
+    </form>
     <!-- 원본글 end -->
     <div class="text-center">
         <h5 class="text-left"><strong>2</strong> 개의 댓글</h5>
@@ -197,6 +206,19 @@
         $("textarea.comment-input").on('keydown keyup', function () {
             $(this).height(1).height( $(this).prop('scrollHeight')+12 );
         });
+    </script>
+    
+    <script>
+    	function boardModify(){
+			var form = document.getElementById("modifyForm");
+			form.submit();
+		}
+    
+    
+   		function boardDelete(){
+   			var form = document.getElementById("deleteForm");
+   			form.submit();
+   		}
     </script>
   </body>
 </html>
